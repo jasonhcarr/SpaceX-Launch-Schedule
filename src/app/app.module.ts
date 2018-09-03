@@ -5,12 +5,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LaunchTableComponent } from './components/launch-table/launch-table.component';
 import { LaunchRowComponent } from './components/launch-row/launch-row.component';
+import { LaunchFooterComponent } from './components/launch-footer/launch-footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LaunchTableComponent,
-    LaunchRowComponent
+    LaunchRowComponent,
+    LaunchFooterComponent
   ],
   imports: [
     BrowserModule,

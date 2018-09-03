@@ -23,13 +23,13 @@ export class LaunchTableComponent implements OnInit {
 
     /**
      * Sorts the launch array based on the passed property value.
-     * allLaunches is sorted in ascending order by default.
+     * 'allLaunches' is sorted in ascending order by default.
      * For performance reasons, rather than resorting it can be the default when the ascending list is requested.
      * If this were not the case, the 'sort' callback could written:
      * @example
      * (a, b) => {
      *      if (this.ascending) return a[field] - b[field];
-     *      else return b[field] - a[field]
+     *      else return b[field] - a[field];
      * }
      * @param {string} field the key on which to sort
      */
