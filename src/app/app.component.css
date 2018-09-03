@@ -1,0 +1,21 @@
+.app__app-container {
+    display: grid;
+    height: 100vh;
+    width: 100%;
+    /* grid-template-columns: [left-margin] 10% [flight-number] 10% [launch-year] 10% [rocket-name] 10% [details] 50% [right-margin] 10%;
+    grid-template-rows: [heading] 20% [table-header] 10% [launch-row] 5%; */
+}
+
+.app-container__heading {
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    height: 200px;
+    -webkit-text-stroke: 1px black;
+    color: white;
+    /* grid-column: 1 / span 6;
+    grid-row: 1 / span 1; */
+    background-image: url('../assets/launch2.png')
+}

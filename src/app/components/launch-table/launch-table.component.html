@@ -1,0 +1,20 @@
+<div class='launch-table__heading-row'>
+    <div class='launch-table__small-cell'>
+        Flight Number
+    </div>
+    <div class='launch-table__small-cell'>
+        Launch Year
+    </div>
+    <div class='launch-table__small-cell'>
+        Rocket Name
+    </div>
+    <div class='launch-table__large-cell'>
+        Details
+    </div>
+</div>
+<a *ngFor='let launch of displayLaunches' class='launch-table__row' href={{launch.links.presskit}} target='blank'>
+    <div class='launch-table__small-cell'>{{launch.flight_number}}</div>
+    <div class='launch-table__small-cell'>{{launch.launch_year}}</div>
+    <div class='launch-table__small-cell'>{{launch.rocket.rocket_name}}</div>
+    <div class='launch-table__large-cell'>{{launch.details}}</div>
+</a>
