@@ -1,20 +1,15 @@
 <div class='launch-table__heading-row'>
-    <div class='launch-table__small-cell'>
+    <div class='launch-table__cell small' (click)='sortTable("flight_number")'>
         Flight Number
     </div>
-    <div class='launch-table__small-cell'>
+    <div class='launch-table__cell small' (click)='sortTable("launch_date_unix")'>
         Launch Year
     </div>
-    <div class='launch-table__small-cell'>
+    <div class='launch-table__cell small'>
         Rocket Name
     </div>
-    <div class='launch-table__large-cell'>
+    <div class='launch-table__cell large'>
         Details
     </div>
 </div>
-<a *ngFor='let launch of displayLaunches' class='launch-table__row' href={{launch.links.presskit}} target='blank'>
-    <div class='launch-table__small-cell'>{{launch.flight_number}}</div>
-    <div class='launch-table__small-cell'>{{launch.launch_year}}</div>
-    <div class='launch-table__small-cell'>{{launch.rocket.rocket_name}}</div>
-    <div class='launch-table__large-cell'>{{launch.details}}</div>
-</a>
+<app-launch-row *ngFor='let launch of displayLaunches' [launch]='launch'></app-launch-row>

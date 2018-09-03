@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ILaunch } from '../../../interfaces/launch';
 
 @Component({
     selector: 'app-launch-row',
@@ -9,7 +10,11 @@ export class LaunchRowComponent implements OnInit {
 
     constructor() { }
 
-    ngOnInit () {
-    }
+    @Input() launch: ILaunch;
+    link: string;
 
+    ngOnInit () {
+        const launch = this.launch;
+        this.link = launch.links.presskit || launch.links.article_link || launch.links.wikipedia;
+    }
 }
