@@ -23,10 +23,16 @@ export class LaunchTableComponent implements OnInit {
     /* Sorted and/or filtered list of launches */
     displayLaunches: ILaunch[][] = [];
 
-    rowsPerPage: number = 10;
+    /* Limits the number of launches displayed on a single page. */
+    rowsPerPage: number = 12;
 
+    /* The set of launch rows currently being displayed */
     currentIndex: number = 0;
 
+    /**
+     * Receives an event from the launch-footer component to change the 'page'/index being displayed.
+     * @param {Event} $event the index to be displayed -- this is one less than the page number
+     */
     receiveIndex = ($event: number) => {
         this.currentIndex = $event;
     }
