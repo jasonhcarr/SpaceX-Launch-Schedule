@@ -1,15 +1,64 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-launch-footer',
-  templateUrl: './launch-footer.component.html',
-  styleUrls: ['./launch-footer.component.css']
+    selector: 'app-launch-footer',
+    templateUrl: './launch-footer.component.html',
+    styleUrls: ['./launch-footer.component.css']
 })
 export class LaunchFooterComponent implements OnInit {
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
-  }
+    /* The total number of pages as sent from launch-table */
+    @Input() numOfPages: number;
 
+    @Output() pageEvent = new EventEmitter<number>();
+
+    currentPage: number = 1;
+    pageRange: number[];
+
+    /**
+     * Sets the range of page buttons to display.
+     */
+    adjustPageRange = () => {
+        if ((this.numOfPages - this.currentPage) >= 4) {
+            this.pageRange = Array(5).fill(1)
+                .map((_num, i) => i + this.currentPage);
+        }
+    };
+
+    /**
+     * Decreases the currentPage value by one and updates the pageRange.
+     */
+    prevPage = () => {
+        if (this.currentPage !== 1) {
+            this.setPage(--this.currentPage);
+        }
+    };
+
+    /**
+     * Advances the currentPage value by one and updates the pageRange.
+     */
+    nextPage = () => {
+        if (this.currentPage !== this.numOfPages) {
+            this.setPage(++this.currentPage);
+        }
+    };
+
+    /**
+     * Sets the currentPage property to the value passed
+     * @param {number} pageNumber
+     */
+    setPage = (pageNumber: number) => {
+        this.currentPage = pageNumber;
+        this.adjustPageRange();
+        this.pageEvent.emit(this.currentPage - 1);
+    }
+
+    /**
+     * Sets the initial pageRange.
+     */
+    ngOnInit () {
+        this.adjustPageRange();
+    }
 }

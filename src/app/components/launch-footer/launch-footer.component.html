@@ -1,3 +1,9 @@
-<p>
-  launch-footer works!
-</p>
+<tfoot>
+    <td>
+        <ul>
+            <li (click)='prevPage()'>« Prev</li>
+            <li *ngFor='let n of pageRange' click='setPage(n)'>{{ n }}</li>
+            <li (click)='nextPage()'>Next »</li>
+        </ul>
+    </td>
+</tfoot>

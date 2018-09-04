@@ -13,5 +13,6 @@
             Details
         </th>
     </tr>
-    <app-launch-row *ngFor='let launch of displayLaunches' [launch]='launch'></app-launch-row>
+    <app-launch-row *ngFor='let launch of displayLaunches[currentIndex]' [launch]='launch'></app-launch-row>
+    <app-launch-footer *ngIf='displayLaunches.length' [numOfPages]='displayLaunches.length' (pageEvent)='receiveIndex($event)'></app-launch-footer>
 </table>
