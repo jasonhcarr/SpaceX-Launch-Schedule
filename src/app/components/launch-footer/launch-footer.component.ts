@@ -27,7 +27,6 @@ export class LaunchFooterComponent implements OnInit {
         } else {
             this.pageRange = Array(5).fill(1)
                 .map((_num, i) => this.numOfPages - (4 - i));
-            console.log(this.pageRange);
         }
     };
 
