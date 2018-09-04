@@ -24,6 +24,10 @@
     cursor: pointer;
 }
 
+.footer__page-button.disable {
+    color: lightgrey;
+}
+
 .footer__page-button.disable:hover {
     background-color: white;
     cursor: default;
